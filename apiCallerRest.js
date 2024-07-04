@@ -11,7 +11,7 @@ function apicall(
   retries = 3
 ) {
   return new Promise((resolve, reject) => {
-    console.log("trying again 1");
+    console.log("attempt 1");
     restClient
       .get(url, {}, function (data, response) {
         // console.log(data)
@@ -19,7 +19,7 @@ function apicall(
       })
       .on("error", function (err1) {
         if (err1) {
-          console.log("trying again 2");
+          console.log("attempt 2");
           restClient
             .get(url, {}, function (data, response) {
               // console.log(data)
@@ -27,7 +27,7 @@ function apicall(
             })
             .on("error", function (err2) {
               if (err2) {
-                console.log("trying again 3");
+                console.log("attempt 3");
                 restClient
                   .get(url, {}, function (data, response) {
                     // console.log(data)
@@ -35,7 +35,10 @@ function apicall(
                   })
                   .on("error", function (err3) {
                     if (err3) {
-                      reject("err3")
+                      let error_data = {};
+                      error_data.custom_error_message = "Could not connect to external api even after after trying 3 times";
+                      error_data.actual_error = err3;
+                      reject( error_data );
                     }
                   });
               }
