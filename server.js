@@ -1,4 +1,4 @@
-const apicall = require("./apiCallerRest");
+const apicall = require("./apiCallerRest2");
 
 // Usage example:
 // apicall(method, url, headers, data , timout, retries) ;
@@ -50,6 +50,7 @@ async function y() {
 
     // GET /posts/1
     // x = await apicall("GET", "https://djsonplaceholder.typicode.com/posts/1");
+    x = await apicall("GET", "https://cluster.qa8.cloud.conves.io:5443/env/1a5/apps/stacks");
 
 
     console.log("x: ");
