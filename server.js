@@ -26,7 +26,7 @@ async function y() {
     // x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts");
 
     // GET /posts/1
-    // x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts/1");
+    x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts/1");
 
 
     // ----------------------- incorrect apis ---------------------
@@ -49,12 +49,13 @@ async function y() {
     // x = await apiRetry("GET", "https://djsonplaceholder.typicode.com/posts");
 
     // GET /posts/1
-    x = await apiRetry("GET", "https://djsonplaceholder.typicode.com/posts/1");
+    // x = await apiRetry("GET", "https://djsonplaceholder.typicode.com/posts/1");
     // x = await apiRetry("GET", "https://cluster.qa8.cloud.conves.io:5443/env/1a5/apps/stacks");
 
 
     console.log("x: ");
     console.log(x);
+    process.exit(0);
   } catch (error) {
     // console.error( error);
     // if(error.custom_error_message == "Could not connect to external api even after after trying 3 times" )
