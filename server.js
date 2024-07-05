@@ -47,7 +47,7 @@ async function y() {
     // x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts");
 
     // GET /posts/1
-    // x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts/1");
+    x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts/1");
 
     // GET /posts?userId=1
     // x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts?userId=1");
