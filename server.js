@@ -1,7 +1,7 @@
-const apicall = require("./apiCallerRest2");
+const apiRetry = require("./lib/apiRetry");
 
 // Usage example:
-// apicall(method, url, headers, data , timout, retries) ;
+// apiRetry(method, url, headers, data , timout, retries) ;
 
 async function y() {
   try {
@@ -9,7 +9,7 @@ async function y() {
     // ----------------------- correct apis ---------------------
 
     // POST /posts    
-    // x = await apicall(
+    // x = await apiRetry(
     //     "POST",
     //     "https://jsonplaceholder.typicode.com/posts/1",
     //     {
@@ -23,16 +23,16 @@ async function y() {
     // );
 
     // GET /posts
-    // x = await apicall("GET", "https://jsonplaceholder.typicode.com/posts");
+    // x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts");
 
     // GET /posts/1
-    // x = await apicall("GET", "https://jsonplaceholder.typicode.com/posts/1");
+    // x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts/1");
 
 
     // ----------------------- incorrect apis ---------------------
 
     // POST /posts    
-    // x = await apicall(
+    // x = await apiRetry(
     //     "POST",
     //     "https://djsonplaceholder.typicode.com/posts/1",
     //     {
@@ -46,21 +46,24 @@ async function y() {
     // );
 
     // GET /posts
-    // x = await apicall("GET", "https://djsonplaceholder.typicode.com/posts");
+    // x = await apiRetry("GET", "https://djsonplaceholder.typicode.com/posts");
 
     // GET /posts/1
-    // x = await apicall("GET", "https://djsonplaceholder.typicode.com/posts/1");
-    x = await apicall("GET", "https://cluster.qa8.cloud.conves.io:5443/env/1a5/apps/stacks");
+    x = await apiRetry("GET", "https://djsonplaceholder.typicode.com/posts/1");
+    // x = await apiRetry("GET", "https://cluster.qa8.cloud.conves.io:5443/env/1a5/apps/stacks");
 
 
     console.log("x: ");
     console.log(x);
   } catch (error) {
     // console.error( error);
-    if(error.custom_error_message == "Could not connect to external api even after after trying 3 times" )
-        {
-            console.error("We need to stop this job and notify in slack !")
-        }
+    // if(error.custom_error_message == "Could not connect to external api even after after trying 3 times" )
+    //     {
+    //         console.error("We need to stop this job and notify in slack !")
+    //     }
+    console.error("error");
+    console.error("We need to stop this job and notify in slack !");
+    
   }
 }
 
