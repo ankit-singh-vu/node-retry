@@ -121,7 +121,7 @@ async function y() {
     process.exit(0);
   } catch (error) {
     // console.error("final error");
-    console.error("We need to stop this job and notify in slack !");
+    console.error(error);
   }
 }
 
