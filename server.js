@@ -34,20 +34,23 @@ async function y() {
     // POST
     // x = await apiRetry(
     //   "POST",
-    //   "https://jsonplaceholder.typicode.com/posts",
-    //   { "Content-Type": "application/json" },
-    //   {
-    //     title: "foo",
-    //     body: "bar",
-    //     userId: 1,
-    //   }
+    //   "https://jsonplaceholder.typicode.com/posts",{
+    //     data: {
+    //       title: "foo",
+    //       body: "bar",
+    //       userId: 1,
+    //     },
+    //     headers: { "Content-Type": "application/json" }
+    //   },
     // );
 
     // GET
     // x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts");
 
     // GET /posts/1
-    x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts/1");
+    // x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts/1",{
+    //       headers: { "Content-Type": "application/json" }
+    //     });
 
     // GET /posts?userId=1
     // x = await apiRetry("GET", "https://jsonplaceholder.typicode.com/posts?userId=1");
@@ -97,7 +100,10 @@ async function y() {
     // x = await apiRetry("GET", "https://djsonplaceholder.typicode.com/posts");
 
     // GET /posts/1
-    // x = await apiRetry("GET", "https://djsonplaceholder.typicode.com/posts/1");
+    x = await apiRetry("GET", "https://djsonplaceholder.typicode.com/posts/1",{
+            headers: { "Content-Type": "application/json" }
+          });
+  
 
     // GET /posts?userId=1
     // x = await apiRetry("GET", "https://djsonplaceholder.typicode.com/posts?userId=1");
